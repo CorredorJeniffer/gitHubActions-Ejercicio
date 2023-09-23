@@ -9,6 +9,7 @@ jobs:
     outputs:
       salida: ${{ steps.imprimir.outputs.respuesta }}
     steps:
+    - uses: actions/checkout@v3
     - name: Imprimir
       id: imprimir
       env:
