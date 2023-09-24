@@ -62,7 +62,7 @@ jobs:
         git checkout -b release
         git push -f -u origin release
 
-  automerge:
+  merge:
     name: Mezcla release -> main
     needs: automerge
     runs-on: ubuntu-latest
