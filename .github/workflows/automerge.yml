@@ -57,10 +57,13 @@ jobs:
           MERGE_LABELS: ""  
 
   job2:
-    name: Crear
-    run: |
-      git checkout -b release
-      git push -f -u origin release
+    name: Crear rama
+    runs-on: ubuntu-latest
+    steps:
+      - name: Crear
+        run: |
+          git checkout -b release
+          git push -f -u origin release
 
   merge:
     name: Mezcla release -> main
