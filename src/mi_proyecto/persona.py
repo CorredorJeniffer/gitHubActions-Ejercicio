@@ -25,7 +25,3 @@ class Persona:
            return (anio_actual - self.__edad)
        else:
            return (anio_actual - self.__edad + 1)
-       
-
-
-   ### Este es un comentario para hacer una prueba    
