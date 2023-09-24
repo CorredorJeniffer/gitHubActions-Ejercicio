@@ -43,27 +43,16 @@ jobs:
       id: cubrimiento
       run: |
           coverage run -m unittest tests/test_persona.py
-          coverage report -m         
+          coverage report -m  
 
   automerge:
-    name: Automerge
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-      - name: automerge
-        uses: "pascalgn/automerge-action@4536e8847eb62fe2f0ee52c8fa92d17aa97f932f"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "" 
-          
-  merge:
     name: Mezcla release -> main
-    needs: automerge
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: merge
         uses: tukasz/direct-merge-action@master
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          source-branch: release
-          target-branch: main                 
+          source-branch: "release"
+          target-branch: "main"                 
