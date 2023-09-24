@@ -56,7 +56,7 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_LABELS: ""  
 
-  crear-rama:
+  job2:
     - name: Crear rama
       run: |
         git checkout -b release
