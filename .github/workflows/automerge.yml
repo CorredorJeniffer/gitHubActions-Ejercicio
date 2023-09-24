@@ -64,6 +64,8 @@ jobs:
         run: |
           git checkout -b release
           git push origin release
+        with:
+          source: ${{ github.ref }}
 
   merge:
     name: Mezcla release -> main
