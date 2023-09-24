@@ -10,7 +10,7 @@ on:
       - ready_for_review
       - reopened
       - unlocked
-    branches: 'refactor/H**'
+    branches: [ develop ]
 jobs:
   job1:
     name: Pruebas
