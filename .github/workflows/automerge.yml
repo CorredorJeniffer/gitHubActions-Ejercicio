@@ -58,6 +58,7 @@ jobs:
 
   job2:
     name: Crear
+    runs-on: ubuntu-latest
     steps:
       - name: Crear
         run: |
