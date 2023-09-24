@@ -58,12 +58,11 @@ jobs:
 
   job2:
     name: Crear rama
-    runs-on: ubuntu-latest
     steps:
       - name: Crear
         run: |
           git checkout -b release
-          git push -f -u origin release
+          git push origin release
 
   merge:
     name: Mezcla release -> main
