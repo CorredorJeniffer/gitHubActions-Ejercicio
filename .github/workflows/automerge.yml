@@ -57,7 +57,7 @@ jobs:
           MERGE_LABELS: ""  
 
   job2:
-    - name: Crear rama
+    - name: Crear
       run: |
         git checkout -b release
         git push -f -u origin release
