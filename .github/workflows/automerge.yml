@@ -11,7 +11,7 @@ on:
       - reopened
       - unlocked
     branches: [ develop ]
-jobs:
+jobs:  
   job1:
     name: Pruebas
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
       id: cubrimiento
       run: |
           coverage run -m unittest tests/test_persona.py
-          coverage report -m
+          coverage report -m         
 
   automerge:
     name: Automerge
@@ -54,4 +54,24 @@ jobs:
         uses: "pascalgn/automerge-action@4536e8847eb62fe2f0ee52c8fa92d17aa97f932f"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: ""       
+          MERGE_LABELS: ""  
+
+  job2:
+    name: Crear rama
+    steps:
+      - name: Crear
+        run: |
+          git checkout -b release
+          git push origin release
+
+  merge:
+    name: Mezcla release -> main
+    needs: automerge
+    runs-on: ubuntu-latest
+    steps:
+      - name: merge
+        uses: tukasz/direct-merge-action@master
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          source-branch: release
+          target-branch: main                 
