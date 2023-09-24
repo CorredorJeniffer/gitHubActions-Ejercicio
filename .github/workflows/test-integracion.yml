@@ -2,7 +2,7 @@ name: Pruebas unitarias
 on:
   push:
     branches:
-      - 'refactor/H**'
+      - '**H**'
 jobs:
   job1:
     name: Pruebas
