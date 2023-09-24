@@ -43,9 +43,9 @@ jobs:
       id: cubrimiento
       run: |
           coverage run -m unittest tests/test_persona.py
-          coverage report -m
+          coverage report -m 
 
-  automerge:
+automerge:
     name: Automerge
     needs: job1
     runs-on: ubuntu-latest
@@ -54,4 +54,4 @@ jobs:
         uses: "pascalgn/automerge-action@4536e8847eb62fe2f0ee52c8fa92d17aa97f932f"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: ""        
+          MERGE_LABELS: ""          
