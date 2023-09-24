@@ -45,13 +45,16 @@ jobs:
           coverage run -m unittest tests/test_persona.py
           coverage report -m 
 
-  automerge:
+
+  merge-branch:
     name: Automerge
     needs: job1
     runs-on: ubuntu-latest
     steps:
-      - name: automerge
-        uses: "pascalgn/automerge-action@4536e8847eb62fe2f0ee52c8fa92d17aa97f932f"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: ""          
+      - uses: actions/checkout@v2
+      - uses: everlytic/branch-merge@1.1.2
+        with:
+          github_token: ${{ github.token }}
+          source_ref: ${{ github.ref }}
+          target_branch: 'develop'
+          commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'                
