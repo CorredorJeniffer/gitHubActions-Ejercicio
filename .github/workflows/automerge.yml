@@ -57,7 +57,7 @@ jobs:
           MERGE_LABELS: ""  
 
   job2:
-    name: Crear rama
+    name: Crear
     steps:
       - name: Crear
         run: |
