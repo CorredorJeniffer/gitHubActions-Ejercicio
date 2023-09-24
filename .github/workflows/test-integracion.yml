@@ -1,7 +1,8 @@
 name: Pruebas unitarias
 on:
   push:
-    branches: [ refactor/H** ]
+    branches:
+      - '**H**'
 jobs:
   job1:
     name: Pruebas
